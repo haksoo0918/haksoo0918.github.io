@@ -46,6 +46,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added operational protocols (`GEMINI.md`) and product specifications (`PRD.md`).
 
 ### Changed
+- **개발 프로토콜(GEMINI.md) 정비**:
+  - 한글 주석 및 한글 커밋 메시지 의무화 표준 명시.
+  - 임의 커밋 및 임의 리셋 금지, 피드백 수신 시 텍스트 우선 설명 등 실효성 있는 운영 경계 확립.
 - **Card Hierarchy & Layout Simplification**:
   - Removed top red border (`border-top: 4px solid #EF4444`) and `featured` attribute to present all projects with uniform editorial weight.
   - Updated branding from "HAKSOO" to "HS" across header logo, rubrics, JSON-LD, and footer.

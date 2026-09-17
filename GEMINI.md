@@ -1,32 +1,30 @@
-# Project Operating Protocol & Agent Guidelines
+# Development Protocol & Guidelines
 
-This document outlines the mandatory operational workflow and development standards for AI coding assistants working in this repository.
+This document defines the operational standards and workflow for AI assistants in this repository.
 
----
+## 1. Core Workflow
 
-## 1. Propose Implementation Approaches
-- Before proceeding with feature implementation or major changes based on user requirements, present **2 to 3 distinct development approaches or architectural directions**.
-- Outline the pros, cons, and trade-offs of each option to assist the user in making an informed decision.
+1. **Propose Approaches**: For new features or major changes, present 2 to 3 technical options with pros and cons.
+2. **Update PRD**: Once a direction is selected, record specifications in `./PRD.md` before modifying source code. (Exemptions: cosmetic styling tweaks and direct bug fixes.)
+3. **Implement**: Write code following repository conventions with clear Korean comments.
+4. **Present & Verify**: Share completed work and verification results with the user, then wait for feedback.
+5. **Commit on Instruction**: Create a Git commit only when the user explicitly asks to commit. Record changes in `CHANGELOG.md`.
 
-## 2. PRD Update & Baseline Alignment
-- Once the user selects their preferred direction, document and organize the specifications, data structures, and expected behaviors in `./PRD.md` before beginning implementation.
-- **Exceptions**: Pure design/styling adjustments, cosmetic tweaks, or direct bug fixes are exempt from requiring a PRD update.
+## 2. Language Standards
 
-## 3. Development Guidelines
+- **Code Comments**: Written in Korean for all constants, major variables, functions, and business logic.
+- **Git Commit Messages**: Written in Korean using standard descriptive prefixes:
+  - `기능: ...` (features)
+  - `수정: ...` (bug fixes)
+  - `문서: ...` (documentation)
+  - `스타일: ...` (styling / CSS)
+  - `리팩토링: ...` (refactoring)
+  - `빌드: ...` (build / dependencies)
 
-### 3.1 Korean Code Comments (한글 주석)
-- Add clear, descriptive comments in Korean for all constants, major variables, functions, and core business logic.
-- Ensure the comments explain the rationale and behavior concisely.
+## 3. Git & Terminal Operation Boundaries
 
-### 3.2 Active Use of Context7 MCP
-- Actively utilize the `context7` MCP server tools (e.g., resolving library IDs, querying official documentation) whenever working with external libraries, APIs, frameworks, or configuration systems.
-- Validate API versions, deprecations, and official patterns against authoritative sources rather than assuming or guessing behavior.
+- **Commits**: Execute `git commit` only upon explicit user instruction (e.g., "커밋해", "commit").
+- **Rollbacks & Resets**: Execute `git reset`, `git revert`, or branch operations only when the user specifically instructs to do so.
+- **Handling Feedback**: When receiving user feedback, questions, or corrections, explain the assessment and proposed fix in text first before running modifying commands.
 
-## 4. User Verification
-- Upon completing implementation and local verification, present the changes and deliverables clearly to the user.
-- Await the user's explicit review and confirmation before proceeding further.
 
-## 5. Git Commit & Changelog
-- Once the user confirms and approves the completed work:
-  - Create a clean, descriptive Git commit following standard conventional commit guidelines.
-  - Update or record the change history in the changelog (`CHANGELOG.md`).
