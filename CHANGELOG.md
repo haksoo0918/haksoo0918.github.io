@@ -8,6 +8,8 @@
 ## [미출시] (Unreleased)
 
 ### 추가됨 (Added)
+- **Git 추적 규칙(.gitignore) 추가**:
+  - OS 생성 파일, 에디터 설정, 의존성 패키지, 임시 로그 및 환경 파일의 Git 추적 제외 설정.
 - **SEO 및 소셜 공유 최적화**:
   - VoiceBox 감성의 고대비 SVG 파비콘(`assets/images/favicon.svg`) 및 표준 32x32 PNG 파비콘(`assets/images/favicon.png`) 생성 및 `<link rel="icon">` 연결.
   - 1200x630px 소셜 공유(Open Graph & Twitter Card) 대표 이미지(`assets/images/og-image.png`) 생성 및 메타 태그(`og:image`, `twitter:image`) 적용.
@@ -15,7 +17,6 @@
   - 웹 바이탈(Core Web Vitals) 성능 개선을 위해 `cdn.jsdelivr.net` 및 `unpkg.com` 대상 `<link rel="preconnect">` 리소스 힌트 추가.
   - `<head>` 내 Lucide 아이콘 스크립트에 `defer` 속성을 추가하여 렌더링 차단 제거.
   - JSON-LD 구조화 데이터에 대표 이미지(`image`) 및 작성자(`author`) 관계 속성 추가.
-  - `TODO.md`에 검색엔진(GSC, 네이버 서치어드바이저) 등록 및 에셋 관리 체크리스트 추가.
 - **SEO 감사 스킬(seo-audit) 도입**:
   - 기술적 SEO, 크롤링 가능 여부, 온페이지 요소 및 구조화 데이터를 체계적으로 진단하기 위해 `seo-audit` 스킬(`.agents/skills/seo-audit/SKILL.md`) 설치.
 - **헤더 및 푸터 계층 구조 정규화**:
