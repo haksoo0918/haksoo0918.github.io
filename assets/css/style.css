@@ -79,6 +79,8 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-primary);
   line-height: 1.7;
+  word-break: keep-all;        /* 한글 단어가 중간에 끊어지지 않고 어절 단위로 자연스럽게 줄바꿈 */
+  overflow-wrap: break-word;   /* 긴 영문이나 URL이 컨테이너 너비를 초과하는 현상 방지 */
 }
 
 /* 링크 스타일 초기화 */
@@ -276,36 +278,44 @@ a {
 
 /* --------------------------------------------------------------------------
    루시드 아이콘 및 인라인 링크 스타일 (Lucide Icons)
+   Pretendard 폰트의 Cap-height와 아이콘의 시각적 중심선을 일치시킴
    -------------------------------------------------------------------------- */
 .inline-icon-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  line-height: 1;
 }
 
-/* 기본 아이콘 규격 (VoiceBox 명세: 16px~20px 정밀 라인) */
+/* 기본 아이콘 규격 (VoiceBox 명세: 16px~18px 선명한 라인 스트로크) */
 i[data-lucide],
 svg.lucide {
-  width: 18px;
-  height: 18px;
-  stroke-width: 2px;
-  vertical-align: middle;
+  width: 17px;
+  height: 17px;
+  stroke-width: 2.2px;
   display: inline-block;
+  vertical-align: middle;
   flex-shrink: 0;
+  position: relative;
+  top: -1px; /* 텍스트 베이스라인 대비 픽셀 퍼펙트 수직 중앙 정렬 */
 }
 
 /* 소형 아이콘 (버튼 및 인라인 텍스트용) */
 i[data-lucide].icon-sm,
 svg.lucide.icon-sm {
-  width: 15px;
-  height: 15px;
-  stroke-width: 2px;
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.2px;
+  position: relative;
+  top: -1px;
 }
 
-/* 버튼 내부 아이콘 여백 */
+/* 버튼 내부 아이콘 정렬 */
 .btn i[data-lucide],
 .btn svg.lucide {
-  margin-left: 6px;
+  margin-left: 4px;
+  position: relative;
+  top: -1px;
 }
 
 /* --------------------------------------------------------------------------
@@ -359,7 +369,8 @@ svg.lucide.icon-sm {
 }
 
 /* --------------------------------------------------------------------------
-   프로젝트 카드 그리드 (Project Card Grid)
+   프로젝트 카드 그리드 (Project Card Grid) - VoiceBox 표준 카드
+   모든 카드는 동일한 위계의 2px 테두리를 가지며, 모서리는 완전 직각(0px)입니다.
    -------------------------------------------------------------------------- */
 .projects-grid {
   display: grid;
@@ -371,21 +382,60 @@ svg.lucide.icon-sm {
 .project-card {
   background-color: var(--color-bg);
   border: var(--border-width) solid var(--border-subtle);
-  padding: var(--spacing-xl);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: border-color 0.2s ease;
+  overflow: hidden;
+}
+
+/* 카드 호버 시 볼드한 블랙 테두리로 시각적 피드백 */
+.project-card:hover {
+  border-color: var(--color-primary);
+}
+
+/* 썸네일 미디어 영역 (16:9 비율의 직각 평면 이미지) */
+.card-thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-surface);
+  border-bottom: var(--border-width) solid var(--border-subtle);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
 
-/* 주요 추천 카드 상단 4px 레드 액센트 라인 (VoiceBox Elevated Spec) */
-.project-card.featured {
-  border-top: 4px solid var(--color-secondary);
+.card-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.project-card:hover {
-  border-color: var(--color-primary);
+/* 이미지가 없을 때 VoiceBox 감성의 미니멀 텍스트 플레이스홀더 */
+.thumbnail-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface);
+  color: var(--color-text-tertiary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* 카드 본문 콘텐츠 패딩 래퍼 */
+.card-body {
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
 .card-header {

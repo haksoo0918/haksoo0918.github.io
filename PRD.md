@@ -7,22 +7,19 @@
 ## 2. 콘텐츠 및 섹션 구성
 
 ### 2.1 Hero & Navigation
-- 프로필 타이틀 (예: *Haksoo's Workspace / Portfolio Hub*)
-- 간결한 소개 문구 및 주요 소셜/GitHub 링크
-- 섹션 바로가기 네비게이션 (sosoFactory / Personal & Labs / Blog)
-- 테마 토글 (Dark / Light 모드)
+- 사이트 타이틀: 소소하게 만들고, 취미로 굴리는 개인 프로젝트 허브
+- 소개 문구: 가내수공업처럼 뚝딱뚝딱 만드는 sosoFactory의 실용적인 웹 도구들과 비트코인 퀀트, 블로그 등 개인적인 취미와 호기심으로 만든 작업물 아카이브
+- 네비게이션: Projects / Blog / GitHub (모두 외부 링크 아이콘 일관 적용)
 
-### 2.2 sosoFactory Projects (Web Apps & Utilities)
-- 일상 및 업무에 바로 사용할 수 있는 실용 웹 서비스 섹션
-- **계산기 (Calculator)**: 빌드된 웹 앱 바로가기 링크
-- **시작페이지 (Start Page / NewTab)**: 빌드된 웹 앱 바로가기 링크
-- 특징: "Launch Web App" 형태의 시각적 강조 버튼, 상태 뱃지 (Live)
+### 2.2 sosoFactory Projects (가내수공업 웹 도구)
+- 필요에 의해 손수 만들어 쓰는 가볍고 실용적인 웹 유틸리티 섹션
+- **계산기 (Calculator)**: 실용적인 반응형 웹 계산기
+- **시작페이지 (Start Page)**: 개인 맞춤형 브라우저 새 탭 / 시작 대시보드
 
-### 2.3 Personal Projects & Labs (Finance & Dev)
-- 심도 있는 개발 및 연구 프로젝트 섹션
-- **비트코인 퀀트 (Bitcoin Quant)**: 암호화폐 퀀트 트레이딩/백테스팅/분석 프로젝트 소개, 기술 스택, 저장소 또는 대시보드 링크
-- **기술 블로그 (Tech Blog)**: `https://blog.haksoo0918.workers.dev/` 바로가기 및 블로그 성격 안내
-- 특징: 기술 스택 태그, 프로젝트 유형 뱃지
+### 2.3 취미 프로젝트 (Personal Hobby & Labs)
+- 개인적인 관심사와 호기심에서 출발한 취미 개발 프로젝트 섹션
+- **비트코인 퀀트 (Bitcoin Quant)**: 가상자산 시장 분석 및 알고리즘 트레이딩 백테스팅 실험
+- **블로그 (Blog)**: 생각, 일상, 취미 개발 기록 아카이브 (`https://blog.haksoo0918.workers.dev/`)
 
 ### 2.4 인터랙션 및 편의 기능
 - 카테고리 필터 탭 (전체 / sosoFactory / Personal / Tools)

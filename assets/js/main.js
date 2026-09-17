@@ -1,7 +1,7 @@
 /**
  * ==========================================================================
  * VoiceBox Editorial Design System - 메인 스크립트 (main.js)
- * 프로젝트 데이터를 불러오고 필터링, Lucide 아이콘 변환 및 동적 렌더링을 제어합니다.
+ * 프로젝트 데이터를 불러오고 필터링, 직각 썸네일 렌더링 및 Lucide 아이콘 변환을 제어합니다.
  * ==========================================================================
  */
 
@@ -21,56 +21,56 @@ const DEFAULT_PROJECTS_FALLBACK = [
     "title": "계산기 (Calculator)",
     "category": "sosoFactory",
     "categoryLabel": "sosoFactory",
-    "description": "업무와 일상에서 빠르고 정확하게 계산할 수 있도록 제작된 반응형 웹 계산기 유틸리티입니다.",
+    "thumbnail": "assets/images/projects/calculator.png",
+    "description": "필요해서 손수 만들어 쓰는 반응형 웹 계산기 유틸리티입니다.",
     "tags": ["Web App", "Utility", "JavaScript"],
     "badge": "LIVE",
     "links": {
       "live": "#",
       "github": "https://github.com/haksoo0918"
-    },
-    "featured": true
+    }
   },
   {
     "id": "startpage",
     "title": "시작페이지 (Start Page)",
     "category": "sosoFactory",
     "categoryLabel": "sosoFactory",
-    "description": "자주 찾는 링크와 일상 생산성 도구를 한눈에 모아둔 미니멀 브라우저 새 탭 / 시작 대시보드입니다.",
+    "thumbnail": "assets/images/projects/startpage.png",
+    "description": "자주 찾는 링크와 일상 도구를 한눈에 모아둔 개인 맞춤형 브라우저 시작 대시보드입니다.",
     "tags": ["Web App", "Productivity", "Dashboard"],
     "badge": "LIVE",
     "links": {
       "live": "#",
       "github": "https://github.com/haksoo0918"
-    },
-    "featured": true
+    }
   },
   {
     "id": "bitcoin-quant",
     "title": "비트코인 퀀트 (Bitcoin Quant)",
     "category": "personal",
-    "categoryLabel": "Personal & Labs",
-    "description": "가상자산 시장 데이터 수집, 기술적 지표 분석 및 계량적 알고리즘 트레이딩 전략을 백테스팅하고 검증하는 퀀트 시스템입니다.",
+    "categoryLabel": "개인 프로젝트",
+    "thumbnail": "assets/images/projects/bitcoin-quant.png",
+    "description": "가상자산 시장 데이터를 분석하고 개인적인 호기심으로 트레이딩 전략을 실험해보는 퀀트 프로젝트입니다.",
     "tags": ["Quant", "Trading", "Python", "Backtesting"],
-    "badge": "LABS",
+    "badge": "LIVE",
     "links": {
-      "live": "",
-      "github": "https://github.com/haksoo0918"
-    },
-    "featured": true
+      "live": "https://haksoo0918.github.io/bitcoin-quant/",
+      "github": "https://github.com/haksoo0918/bitcoin-quant"
+    }
   },
   {
     "id": "tech-blog",
-    "title": "기술 블로그 (Tech Blog)",
+    "title": "블로그 (Blog)",
     "category": "personal",
-    "categoryLabel": "Personal & Labs",
-    "description": "소프트웨어 엔지니어링, 인프라 자동화, 퀀트 리서치 및 개인 개발 회고를 기록하는 공식 기술 블로그입니다.",
-    "tags": ["Blog", "Tech", "Cloudflare Workers", "Articles"],
+    "categoryLabel": "개인 프로젝트",
+    "thumbnail": "assets/images/projects/blog.png",
+    "description": "생각과 일상, 소소한 취미 개발 이야기를 자유롭게 적어두는 개인 블로그입니다.",
+    "tags": ["Blog", "Life & Notes", "Cloudflare Workers"],
     "badge": "EXTERNAL",
     "links": {
       "live": "https://blog.haksoo0918.workers.dev/",
       "github": "https://github.com/haksoo0918"
-    },
-    "featured": false
+    }
   }
 ];
 
@@ -162,14 +162,29 @@ function filterProjectsByCategory(category) {
 }
 
 /**
- * 프로젝트 카드 HTML 문자열을 생성하는 함수 (Lucide 외부링크 및 GitHub 아이콘 포함)
+ * 이미지 로드 실패 시 직각 미니멀 플레이스홀더로 교체하는 인라인 핸들러
+ * @param {HTMLImageElement} imgElement - 에러가 발생한 이미지 요소
+ * @param {string} title - 프로젝트 타이틀
+ */
+window.handleThumbnailError = function(imgElement, title) {
+  const container = imgElement.parentElement;
+  if (!container) return;
+  
+  // 깨진 이미지 태그 대신 VoiceBox 감성의 플레이스홀더 블록으로 교체
+  container.innerHTML = `
+    <div class="thumbnail-placeholder">
+      <span>${escapeHtml(title)}</span>
+    </div>
+  `;
+};
+
+/**
+ * 프로젝트 카드 HTML 문자열을 생성하는 함수
+ * 썸네일 영역, 카테고리 뱃지, 설명, 태그, 외부 링크 버튼을 구조화합니다.
  * @param {Object} project - 개별 프로젝트 데이터 객체
  * @returns {string} 완성된 HTML 문자열
  */
 function createProjectCardHtml(project) {
-  // 추천 프로젝트 여부에 따른 클래스 지정
-  const featuredClass = project.featured ? 'featured' : '';
-  
   // 뱃지 클래스 매핑
   const badgeClass = (project.badge || 'live').toLowerCase();
 
@@ -178,34 +193,46 @@ function createProjectCardHtml(project) {
     .map((tag) => `<span class="tag-item">${escapeHtml(tag)}</span>`)
     .join('');
 
-  // 외부 실행/방문 링크 버튼 (Lucide external-link 아이콘 포함)
+  // 외부 실행/방문 링크 버튼 (external-link 아이콘)
   const liveButtonHtml = project.links && project.links.live
     ? `<a href="${escapeHtml(project.links.live)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">사이트 방문 <i data-lucide="external-link" class="icon-sm"></i></a>`
     : '';
 
-  // GitHub 저장소 링크 버튼 (Lucide github 아이콘 포함)
+  // GitHub 저장소 링크 버튼 (external-link 아이콘)
   const githubButtonHtml = project.links && project.links.github
-    ? `<a href="${escapeHtml(project.links.github)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub <i data-lucide="github" class="icon-sm"></i></a>`
+    ? `<a href="${escapeHtml(project.links.github)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub <i data-lucide="external-link" class="icon-sm"></i></a>`
     : '';
 
-  return `
-    <article class="project-card ${featuredClass}" data-id="${escapeHtml(project.id)}">
-      <div>
-        <div class="card-header">
-          <span class="card-category">${escapeHtml(project.categoryLabel || project.category)}</span>
-          <span class="status-badge ${badgeClass}">${escapeHtml(project.badge || 'LIVE')}</span>
-        </div>
-        <h3 class="card-title">${escapeHtml(project.title)}</h3>
-        <p class="card-description">${escapeHtml(project.description)}</p>
-      </div>
+  // 썸네일 HTML 생성 (이미지가 없거나 로드 실패 시 플레이스홀더로 폴백)
+  const thumbnailHtml = project.thumbnail
+    ? `<div class="card-thumbnail">
+         <img src="${escapeHtml(project.thumbnail)}" alt="${escapeHtml(project.title)} 미리보기" loading="lazy" onerror="handleThumbnailError(this, '${escapeHtml(project.title).replace(/'/g, "\\'")}')" />
+       </div>`
+    : `<div class="card-thumbnail">
+         <div class="thumbnail-placeholder"><span>${escapeHtml(project.title)}</span></div>
+       </div>`;
 
-      <div>
-        <div class="card-tags">
-          ${tagsHtml}
+  return `
+    <article class="project-card" data-id="${escapeHtml(project.id)}">
+      ${thumbnailHtml}
+      <div class="card-body">
+        <div>
+          <div class="card-header">
+            <span class="card-category">${escapeHtml(project.categoryLabel || project.category)}</span>
+            <span class="status-badge ${badgeClass}">${escapeHtml(project.badge || 'LIVE')}</span>
+          </div>
+          <h3 class="card-title">${escapeHtml(project.title)}</h3>
+          <p class="card-description">${escapeHtml(project.description)}</p>
         </div>
-        <div class="card-actions">
-          ${liveButtonHtml}
-          ${githubButtonHtml}
+
+        <div>
+          <div class="card-tags">
+            ${tagsHtml}
+          </div>
+          <div class="card-actions">
+            ${liveButtonHtml}
+            ${githubButtonHtml}
+          </div>
         </div>
       </div>
     </article>

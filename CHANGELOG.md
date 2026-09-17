@@ -8,12 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- **Lucide Icons Integration**:
-  - Integrated official Lucide Icons CDN script (`unpkg.com/lucide`).
-  - Added `external-link` (↗) icons to all external outbound links (Tech Blog, live site buttons).
-  - Added `github` icons to GitHub repository buttons and navigation links.
-  - Implemented offline fallback dataset in `assets/js/main.js` to support direct `file:///` local browser double-click previews without CORS issues.
-  - Added VoiceBox compliant icon styling in `assets/css/style.css` (15-18px stroke alignment).
+- **Project Thumbnail System**:
+  - Added 16:9 sharp rectangular thumbnail area to all project cards adhering to VoiceBox design guidelines (`assets/css/style.css`).
+  - Implemented smart fallback placeholder for cards without an image file (`assets/js/main.js`).
+  - Added `thumbnail` path fields in `data/projects.json`.
+- **User Checklist Document**:
+  - Created `TODO.md` documenting deployment URLs, recommended thumbnail specifications, and repository linking tasks.
+
+### Changed
+- **Card Hierarchy & Layout Simplification**:
+  - Removed top red border (`border-top: 4px solid #EF4444`) and `featured` attribute to present all projects with uniform editorial weight.
+  - Updated branding from "HAKSOO" to "HS" across header logo, rubrics, JSON-LD, and footer.
+  - Simplified filter buttons: `[전체 (ALL)]`, `[sosoFactory]`, `[개인 프로젝트]`.
+  - Added `word-break: keep-all;` and `overflow-wrap: break-word;` on `body` to prevent awkward Korean word wrapping.
+  - Standardized all outbound navigation and repository links to use Lucide `external-link` (↗) icons with pixel-perfect vertical alignment.
+
+### Removed
+- Removed framework credit text ("Built with...") from footer for a cleaner, minimal aesthetic.
 - **VoiceBox Editorial Design System**:
   - Implemented high-contrast magazine-style layout (`assets/css/style.css`).
   - Strict 0px border radius, no shadows, 2px bold borders, and `#EF4444` red accent.
