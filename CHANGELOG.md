@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed
+### Added
+- **SEO Audit Skill Integration**:
+  - Installed `seo-audit` skill (`.agents/skills/seo-audit/SKILL.md`) to systematically diagnose technical SEO, crawlability, on-page factors, and structured data.
 - **Header & Footer Hierarchy Normalization**:
   - Separated combined `<div class="container masthead-inner">` and `<div class="container footer-inner">` into proper parent-child nesting (`.container > .masthead-inner`), eliminating CSS property overrides and vertical alignment discrepancies.
   - Aligned all spacing and paddings strictly to `DESIGN.md` 8px scale tokens (`var(--spacing-md)` 16px vertical padding on masthead, `var(--spacing-xl)` 32px horizontal padding on container).
