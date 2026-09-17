@@ -1,0 +1,58 @@
+[
+  {
+    "id": "calculator",
+    "title": "계산기 (Calculator)",
+    "category": "sosoFactory",
+    "categoryLabel": "sosoFactory",
+    "description": "업무와 일상에서 빠르고 정확하게 계산할 수 있도록 제작된 반응형 웹 계산기 유틸리티입니다.",
+    "tags": ["Web App", "Utility", "JavaScript"],
+    "badge": "LIVE",
+    "links": {
+      "live": "#",
+      "github": "https://github.com/haksoo0918"
+    },
+    "featured": true
+  },
+  {
+    "id": "startpage",
+    "title": "시작페이지 (Start Page)",
+    "category": "sosoFactory",
+    "categoryLabel": "sosoFactory",
+    "description": "자주 찾는 링크와 일상 생산성 도구를 한눈에 모아둔 미니멀 브라우저 새 탭 / 시작 대시보드입니다.",
+    "tags": ["Web App", "Productivity", "Dashboard"],
+    "badge": "LIVE",
+    "links": {
+      "live": "#",
+      "github": "https://github.com/haksoo0918"
+    },
+    "featured": true
+  },
+  {
+    "id": "bitcoin-quant",
+    "title": "비트코인 퀀트 (Bitcoin Quant)",
+    "category": "personal",
+    "categoryLabel": "Personal & Labs",
+    "description": "가상자산 시장 데이터 수집, 기술적 지표 분석 및 계량적 알고리즘 트레이딩 전략을 백테스팅하고 검증하는 퀀트 시스템입니다.",
+    "tags": ["Quant", "Trading", "Python", "Backtesting"],
+    "badge": "LABS",
+    "links": {
+      "live": "",
+      "github": "https://github.com/haksoo0918"
+    },
+    "featured": true
+  },
+  {
+    "id": "tech-blog",
+    "title": "기술 블로그 (Tech Blog)",
+    "category": "personal",
+    "categoryLabel": "Personal & Labs",
+    "description": "소프트웨어 엔지니어링, 인프라 자동화, 퀀트 리서치 및 개인 개발 회고를 기록하는 공식 기술 블로그입니다.",
+    "tags": ["Blog", "Tech", "Cloudflare Workers", "Articles"],
+    "badge": "EXTERNAL",
+    "links": {
+      "live": "https://blog.haksoo0918.workers.dev/",
+      "github": "https://github.com/haksoo0918"
+    },
+    "featured": false
+  }
+]

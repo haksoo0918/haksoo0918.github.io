@@ -1,12 +1,132 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Haksoo0918.github.io</title>
-    <script>
-      window.location.replace('https://haksoo0918.github.io/blog/');
-    </script>
-  </head>
-  <body></body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO 메타 태그 -->
+  <title>Haksoo | Projects &amp; Portfolio Hub</title>
+  <meta name="description" content="sosoFactory 웹 유틸리티 앱, 비트코인 퀀트 시스템 및 기술 블로그를 한눈에 탐색하고 바로 실행할 수 있는 프로젝트 포털 허브입니다." />
+  <meta name="author" content="Haksoo" />
+  <meta name="robots" content="index, follow, max-snippet:160, max-image-preview:large" />
+  <link rel="canonical" href="https://haksoo0918.github.io/" />
+
+  <!-- Open Graph / 소셜 미디어 메타 태그 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Haksoo Projects Hub" />
+  <meta property="og:url" content="https://haksoo0918.github.io/" />
+  <meta property="og:title" content="Haksoo | Projects &amp; Portfolio Hub" />
+  <meta property="og:description" content="sosoFactory 웹 앱, 비트코인 퀀트 및 기술 블로그 허브" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <!-- Twitter 카드 메타 태그 -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Haksoo | Projects &amp; Portfolio Hub" />
+  <meta name="twitter:description" content="sosoFactory 웹 앱, 비트코인 퀀트 및 기술 블로그 허브" />
+
+  <!-- 단일 기본 폰트: Pretendard CDN -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+
+  <!-- VoiceBox Editorial 스타일시트 -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- JSON-LD 구조화 데이터 (SEO 스키마) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://haksoo0918.github.io/#website",
+        "url": "https://haksoo0918.github.io/",
+        "name": "Haksoo Projects Hub",
+        "description": "sosoFactory 프로젝트와 개인 퀀트/엔지니어링 결과물을 소개하는 포털",
+        "inLanguage": "ko-KR"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://haksoo0918.github.io/#person",
+        "name": "Haksoo",
+        "url": "https://haksoo0918.github.io/",
+        "sameAs": [
+          "https://github.com/haksoo0918",
+          "https://blog.haksoo0918.workers.dev/"
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- 에디토리얼 상단 마스트헤드 네비게이션 -->
+  <header class="site-header" role="banner">
+    <div class="container masthead-inner">
+      <div class="brand-logo">
+        <a href="/">HAKSOO<span class="brand-dot">.</span>HUB</a>
+      </div>
+      <nav aria-label="메인 메뉴">
+        <ul class="nav-links">
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="https://blog.haksoo0918.workers.dev/" target="_blank" rel="noopener noreferrer" class="nav-link">Blog</a></li>
+          <li><a href="https://github.com/haksoo0918" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- 히어로 섹션 -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="container">
+        <span class="overline-rubric">PORTFOLIO &amp; SHOWCASE</span>
+        <h1 id="hero-heading" class="hero-title">BUILD, EXPERIMENT &amp; LAUNCH.</h1>
+        <p class="hero-description">
+          실용적인 웹 유틸리티를 만드는 <strong>sosoFactory</strong> 프로젝트부터 계량적 투자 분석을 연구하는 <strong>비트코인 퀀트</strong> 및 기술 블로그 기록까지, 관심과 문제의식에서 출발한 개발 작업물들을 한곳에 정리한 허브입니다.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">프로젝트 둘러보기</a>
+          <a href="https://blog.haksoo0918.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">기술 블로그 바로가기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 프로젝트 쇼케이스 섹션 -->
+    <section id="projects" class="projects-section" aria-labelledby="projects-heading">
+      <div class="container">
+        <!-- 필터 컨트롤 바 -->
+        <div class="filter-bar-wrapper">
+          <h2 id="projects-heading" class="section-headline">SELECTED PROJECTS</h2>
+          <div class="filter-chips" role="group" aria-label="프로젝트 카테고리 필터">
+            <button type="button" class="filter-chip active" data-category="all">전체 (ALL)</button>
+            <button type="button" class="filter-chip" data-category="sosoFactory">sosoFactory</button>
+            <button type="button" class="filter-chip" data-category="personal">Personal &amp; Labs</button>
+          </div>
+        </div>
+
+        <!-- 동적 카드 그리드 컨테이너 -->
+        <div id="projects-grid" class="projects-grid" aria-live="polite">
+          <!-- main.js에 의해 projects.json 데이터가 동적으로 렌더링됩니다 -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 에디토리얼 푸터 -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-info">
+        <p class="footer-copyright">&copy; 2026 Haksoo. All rights reserved.</p>
+        <p>Built with VoiceBox Editorial System &amp; Pretendard Typography.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://github.com/haksoo0918" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://blog.haksoo0918.workers.dev/" target="_blank" rel="noopener noreferrer">Tech Blog</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- 메인 스크립트 로드 -->
+  <script src="assets/js/main.js" defer></script>
+</body>
 </html>
