@@ -1,7 +1,7 @@
 /**
  * ==========================================================================
  * VoiceBox Editorial Design System - 메인 스크립트 (main.js)
- * 프로젝트 데이터를 불러오고 필터링 및 동적 렌더링을 제어합니다.
+ * 프로젝트 데이터를 불러오고 필터링, Lucide 아이콘 변환 및 동적 렌더링을 제어합니다.
  * ==========================================================================
  */
 
@@ -10,6 +10,69 @@
  * @type {string}
  */
 const PROJECTS_DATA_URL = 'data/projects.json';
+
+/**
+ * 오프라인 환경(로컬 file:// 더블클릭 등) 및 CORS 차단 시 사용할 기본 프로젝트 폴백 데이터
+ * @type {Array<Object>}
+ */
+const DEFAULT_PROJECTS_FALLBACK = [
+  {
+    "id": "calculator",
+    "title": "계산기 (Calculator)",
+    "category": "sosoFactory",
+    "categoryLabel": "sosoFactory",
+    "description": "업무와 일상에서 빠르고 정확하게 계산할 수 있도록 제작된 반응형 웹 계산기 유틸리티입니다.",
+    "tags": ["Web App", "Utility", "JavaScript"],
+    "badge": "LIVE",
+    "links": {
+      "live": "#",
+      "github": "https://github.com/haksoo0918"
+    },
+    "featured": true
+  },
+  {
+    "id": "startpage",
+    "title": "시작페이지 (Start Page)",
+    "category": "sosoFactory",
+    "categoryLabel": "sosoFactory",
+    "description": "자주 찾는 링크와 일상 생산성 도구를 한눈에 모아둔 미니멀 브라우저 새 탭 / 시작 대시보드입니다.",
+    "tags": ["Web App", "Productivity", "Dashboard"],
+    "badge": "LIVE",
+    "links": {
+      "live": "#",
+      "github": "https://github.com/haksoo0918"
+    },
+    "featured": true
+  },
+  {
+    "id": "bitcoin-quant",
+    "title": "비트코인 퀀트 (Bitcoin Quant)",
+    "category": "personal",
+    "categoryLabel": "Personal & Labs",
+    "description": "가상자산 시장 데이터 수집, 기술적 지표 분석 및 계량적 알고리즘 트레이딩 전략을 백테스팅하고 검증하는 퀀트 시스템입니다.",
+    "tags": ["Quant", "Trading", "Python", "Backtesting"],
+    "badge": "LABS",
+    "links": {
+      "live": "",
+      "github": "https://github.com/haksoo0918"
+    },
+    "featured": true
+  },
+  {
+    "id": "tech-blog",
+    "title": "기술 블로그 (Tech Blog)",
+    "category": "personal",
+    "categoryLabel": "Personal & Labs",
+    "description": "소프트웨어 엔지니어링, 인프라 자동화, 퀀트 리서치 및 개인 개발 회고를 기록하는 공식 기술 블로그입니다.",
+    "tags": ["Blog", "Tech", "Cloudflare Workers", "Articles"],
+    "badge": "EXTERNAL",
+    "links": {
+      "live": "https://blog.haksoo0918.workers.dev/",
+      "github": "https://github.com/haksoo0918"
+    },
+    "featured": false
+  }
+];
 
 /**
  * 프로젝트 카드들이 렌더링될 DOM 컨테이너 요소
@@ -30,12 +93,13 @@ const filterChips = document.querySelectorAll('.filter-chip');
 let loadedProjectsList = [];
 
 /**
- * 애플리케이션 초기화 함수
- * DOM이 로드된 후 프로젝트 데이터를 불러오고 이벤트 리스너를 바인딩합니다.
+ * Lucide 아이콘 변환을 실행하는 함수
+ * DOM에 추가된 [data-lucide] 태그들을 인라인 SVG 아이콘으로 일괄 렌더링합니다.
  */
-async function initializeApp() {
-  bindFilterEvents();
-  await fetchAndRenderProjects();
+function refreshIcons() {
+  if (window.lucide && typeof window.lucide.createIcons === 'function') {
+    window.lucide.createIcons();
+  }
 }
 
 /**
@@ -61,7 +125,8 @@ function bindFilterEvents() {
 }
 
 /**
- * 원격 JSON 파일로부터 프로젝트 목록 데이터를 수신하고 초기 렌더링하는 비동기 함수
+ * 원격 JSON 파일로부터 프로젝트 목록 데이터를 수신하고 렌더링하는 비동기 함수
+ * 로컬 파일 시스템(`file://`)이나 네트워크 오류 시 내장 폴백 데이터로 자동 전환합니다.
  */
 async function fetchAndRenderProjects() {
   if (!projectsGridContainer) return;
@@ -69,14 +134,16 @@ async function fetchAndRenderProjects() {
   try {
     const response = await fetch(PROJECTS_DATA_URL);
     if (!response.ok) {
-      throw new Error(`데이터 로드 실패: HTTP ${response.status}`);
+      throw new Error(`데이터 로드 응답 에러: HTTP ${response.status}`);
     }
 
     loadedProjectsList = await response.json();
     renderProjects(loadedProjectsList);
   } catch (error) {
-    console.error('프로젝트 데이터 로드 중 오류 발생:', error);
-    renderErrorMessage('프로젝트 정보를 불러오는 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+    // file:// 환경 또는 fetch 실패 시에도 더블클릭으로 바로 볼 수 있도록 폴백 데이터 사용
+    console.warn('projects.json fetch 실패, 기본 내장 데이터를 사용합니다:', error);
+    loadedProjectsList = DEFAULT_PROJECTS_FALLBACK;
+    renderProjects(loadedProjectsList);
   }
 }
 
@@ -95,7 +162,7 @@ function filterProjectsByCategory(category) {
 }
 
 /**
- * 프로젝트 카드 HTML 문자열을 생성하는 함수
+ * 프로젝트 카드 HTML 문자열을 생성하는 함수 (Lucide 외부링크 및 GitHub 아이콘 포함)
  * @param {Object} project - 개별 프로젝트 데이터 객체
  * @returns {string} 완성된 HTML 문자열
  */
@@ -111,14 +178,14 @@ function createProjectCardHtml(project) {
     .map((tag) => `<span class="tag-item">${escapeHtml(tag)}</span>`)
     .join('');
 
-  // 라이브/실행 링크 버튼 생성 (있는 경우에만 렌더링)
+  // 외부 실행/방문 링크 버튼 (Lucide external-link 아이콘 포함)
   const liveButtonHtml = project.links && project.links.live
-    ? `<a href="${escapeHtml(project.links.live)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">사이트 방문</a>`
+    ? `<a href="${escapeHtml(project.links.live)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">사이트 방문 <i data-lucide="external-link" class="icon-sm"></i></a>`
     : '';
 
-  // GitHub 저장소 링크 버튼 생성 (있는 경우에만 렌더링)
+  // GitHub 저장소 링크 버튼 (Lucide github 아이콘 포함)
   const githubButtonHtml = project.links && project.links.github
-    ? `<a href="${escapeHtml(project.links.github)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub</a>`
+    ? `<a href="${escapeHtml(project.links.github)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub <i data-lucide="github" class="icon-sm"></i></a>`
     : '';
 
   return `
@@ -146,7 +213,7 @@ function createProjectCardHtml(project) {
 }
 
 /**
- * 프로젝트 목록을 화면에 렌더링하는 함수
+ * 프로젝트 목록을 화면에 렌더링하고 Lucide 아이콘을 생성하는 함수
  * @param {Array<Object>} projects - 렌더링할 프로젝트 객체 배열
  */
 function renderProjects(projects) {
@@ -163,21 +230,9 @@ function renderProjects(projects) {
 
   const cardsHtml = projects.map(createProjectCardHtml).join('');
   projectsGridContainer.innerHTML = cardsHtml;
-}
 
-/**
- * 에러 메시지를 컨테이너에 표시하는 함수
- * @param {string} message - 사용자에게 안내할 에러 메시지
- */
-function renderErrorMessage(message) {
-  if (!projectsGridContainer) return;
-
-  projectsGridContainer.innerHTML = `
-    <div style="grid-column: 1 / -1; padding: 48px; border: 2px solid var(--color-secondary); background-color: #FEF2F2; text-align: center;">
-      <p style="font-weight: 800; color: var(--color-secondary); margin-bottom: 8px;">오류 발생</p>
-      <p style="color: var(--color-text-primary);">${escapeHtml(message)}</p>
-    </div>
-  `;
+  // 새로 삽입된 카드 내 data-lucide 아이콘 일괄 렌더링
+  refreshIcons();
 }
 
 /**
@@ -193,6 +248,16 @@ function escapeHtml(unsafeString) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+/**
+ * 애플리케이션 초기화 함수
+ * DOM이 로드된 후 프로젝트 데이터를 불러오고 이벤트 리스너를 바인딩합니다.
+ */
+async function initializeApp() {
+  bindFilterEvents();
+  await fetchAndRenderProjects();
+  refreshIcons();
 }
 
 // DOM 준비 완료 시 앱 초기화 실행

@@ -275,6 +275,40 @@ a {
 }
 
 /* --------------------------------------------------------------------------
+   루시드 아이콘 및 인라인 링크 스타일 (Lucide Icons)
+   -------------------------------------------------------------------------- */
+.inline-icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 기본 아이콘 규격 (VoiceBox 명세: 16px~20px 정밀 라인) */
+i[data-lucide],
+svg.lucide {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2px;
+  vertical-align: middle;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* 소형 아이콘 (버튼 및 인라인 텍스트용) */
+i[data-lucide].icon-sm,
+svg.lucide.icon-sm {
+  width: 15px;
+  height: 15px;
+  stroke-width: 2px;
+}
+
+/* 버튼 내부 아이콘 여백 */
+.btn i[data-lucide],
+.btn svg.lucide {
+  margin-left: 6px;
+}
+
+/* --------------------------------------------------------------------------
    필터 컨트롤 바 (Filter Controls)
    -------------------------------------------------------------------------- */
 .filter-bar-wrapper {
