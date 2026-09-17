@@ -7,13 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-- **Project Thumbnail System**:
-  - Added 16:9 sharp rectangular thumbnail area to all project cards adhering to VoiceBox design guidelines (`assets/css/style.css`).
-  - Implemented smart fallback placeholder for cards without an image file (`assets/js/main.js`).
-  - Added `thumbnail` path fields in `data/projects.json`.
-- **User Checklist Document**:
-  - Created `TODO.md` documenting deployment URLs, recommended thumbnail specifications, and repository linking tasks.
+### Fixed
+- **Header & Footer Hierarchy Normalization**:
+  - Separated combined `<div class="container masthead-inner">` and `<div class="container footer-inner">` into proper parent-child nesting (`.container > .masthead-inner`), eliminating CSS property overrides and vertical alignment discrepancies.
+  - Aligned all spacing and paddings strictly to `DESIGN.md` 8px scale tokens (`var(--spacing-md)` 16px vertical padding on masthead, `var(--spacing-xl)` 32px horizontal padding on container).
+- **Mobile Footer Compacting**:
+  - Reduced excessive mobile footer padding from 48px to 24px (`var(--spacing-lg)`).
+  - Compacted mobile grid bottom padding from 96px to 48px (`var(--spacing-2xl)`).
+- **Responsive 3-Tier Grid Hierarchy**:
+  - Restored 3-column desktop layout (`repeat(3, 1fr)`) for screens >= 1024px.
+  - Preserved 2-column layout (`repeat(2, 1fr)`) for tablet screens (641px - 1023px, including 768px).
+  - Maintained single-column full-width stack for mobile screens (<= 640px).
 
 ### Changed
 - **Card Hierarchy & Layout Simplification**:
