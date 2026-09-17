@@ -70,3 +70,21 @@ VoiceBox 디자인 시스템에 맞춰 각 프로젝트 카드의 상단 썸네�
 git push origin master
 ```
 GitHub Pages 설정에서 `master` 브랜치 루트(`/`)가 배포 브랜치로 지정되어 있는지 확인하시면 바로 전 세계에 공개됩니다.
+
+---
+
+## 6. SEO 및 검색 엔진 웹마스터 도구 등록
+사이트 배포 후 국내외 주요 검색 엔진에 사이트맵을 제출하여 빠른 색인 및 노출을 활성화합니다.
+
+- [ ] **Google Search Console (GSC) 등록**:
+  - [Google Search Console](https://search.google.com/search-console) 접속 및 `https://haksoo0918.github.io/` 속성 추가
+  - 'Sitemaps' 메뉴에서 `sitemap.xml` 제출 완료하기
+- [ ] **네이버 서치어드바이저 (Naver Search Advisor) 등록**:
+  - [네이버 서치어드바이저](https://searchadvisor.naver.com/)에서 사이트 등록
+  - 웹마스터 도구 > 요청 > 사이트맵 제출에서 `sitemap.xml` 등록
+- [ ] **(선택) 대표 공유 이미지(OG Image) 교체**:
+  - 현재 VoiceBox 감성의 기본 생성 이미지(`assets/images/og-image.png`, 1200x630px)가 적용되어 있습니다.
+  - 향후 실제 서비스 캡처나 원하는 그래픽으로 교체하려면 같은 경로에 덮어쓰기 하시면 됩니다.
+- [ ] **(선택) 파비콘(Favicon) 커스텀**:
+  - 현재 `HS.` 미니멀 벡터 파비콘(`assets/images/favicon.svg`, `favicon.png`)이 적용되어 있습니다.
+

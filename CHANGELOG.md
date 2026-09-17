@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- **SEO & Social Share Optimization**:
+  - Generated and applied high-contrast VoiceBox SVG favicon (`assets/images/favicon.svg`) and standard 32x32 PNG favicon (`assets/images/favicon.png`) with `<link rel="icon">` tags.
+  - Generated and integrated 1200x630 Open Graph & Twitter Card preview image (`assets/images/og-image.png`) with `og:image` and `twitter:image` tags.
+  - Pre-rendered static project cards directly in `index.html` inside `#projects-grid` for complete indexation by non-JS search engine crawlers (Naver Yeti, Bingbot, social scrapers).
+  - Added `<link rel="preconnect">` resource hints for `cdn.jsdelivr.net` and `unpkg.com` to boost Core Web Vitals (FCP/LCP).
+  - Added `defer` attribute to Lucide script to prevent render-blocking parser halts in `<head>`.
+  - Enriched structured data (JSON-LD) with `image` and `author` relationships.
+  - Added Webmaster tools registration and asset replacement checklist to `TODO.md`.
 - **SEO Audit Skill Integration**:
   - Installed `seo-audit` skill (`.agents/skills/seo-audit/SKILL.md`) to systematically diagnose technical SEO, crawlability, on-page factors, and structured data.
 - **Header & Footer Hierarchy Normalization**:

@@ -279,9 +279,12 @@ function escapeHtml(unsafeString) {
 
 /**
  * 애플리케이션 초기화 함수
- * DOM이 로드된 후 프로젝트 데이터를 불러오고 이벤트 리스너를 바인딩합니다.
+ * DOM이 로드된 후 사전 렌더링된 카드의 아이콘을 즉시 변환하고,
+ * 최신 프로젝트 데이터를 불러오고 필터 이벤트 리스너를 바인딩합니다.
  */
 async function initializeApp() {
+  // 정적 HTML에 미리 포함된 Lucide 아이콘 즉시 SVG로 변환 (FOUC 방지)
+  refreshIcons();
   bindFilterEvents();
   await fetchAndRenderProjects();
   refreshIcons();

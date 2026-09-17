@@ -5,30 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <!-- SEO 메타 태그 -->
-  <title>HS | Projects &amp; Portfolio Hub</title>
+  <title>HS HUB | sosoFactory 웹 도구 &amp; 취미 프로젝트 포트폴리오</title>
   <meta name="description" content="sosoFactory 웹 유틸리티 앱, 비트코인 퀀트 시스템 및 블로그를 한눈에 탐색하고 바로 실행할 수 있는 프로젝트 포털 허브입니다." />
   <meta name="author" content="HS" />
   <meta name="robots" content="index, follow, max-snippet:160, max-image-preview:large" />
   <link rel="canonical" href="https://haksoo0918.github.io/" />
 
+  <!-- 파비콘 (Favicon) -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+
   <!-- Open Graph / 소셜 미디어 메타 태그 -->
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="HS Projects Hub" />
+  <meta property="og:site_name" content="HS HUB" />
   <meta property="og:url" content="https://haksoo0918.github.io/" />
-  <meta property="og:title" content="HS | Projects &amp; Portfolio Hub" />
-  <meta property="og:description" content="sosoFactory 웹 앱, 비트코인 퀀트 및 블로그 허브" />
+  <meta property="og:title" content="HS HUB | sosoFactory 웹 도구 &amp; 취미 프로젝트 포트폴리오" />
+  <meta property="og:description" content="sosoFactory 웹 유틸리티 앱, 비트코인 퀀트 시스템 및 블로그를 한눈에 탐색하고 바로 실행할 수 있는 프로젝트 포털 허브입니다." />
+  <meta property="og:image" content="https://haksoo0918.github.io/assets/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="HS HUB - sosoFactory 웹 도구 &amp; 취미 프로젝트 포털" />
   <meta property="og:locale" content="ko_KR" />
 
   <!-- Twitter 카드 메타 태그 -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="HS | Projects &amp; Portfolio Hub" />
-  <meta name="twitter:description" content="sosoFactory 웹 앱, 비트코인 퀀트 및 블로그 허브" />
+  <meta name="twitter:title" content="HS HUB | sosoFactory 웹 도구 &amp; 취미 프로젝트 포트폴리오" />
+  <meta name="twitter:description" content="sosoFactory 웹 유틸리티 앱, 비트코인 퀀트 시스템 및 블로그를 한눈에 탐색하고 바로 실행할 수 있는 프로젝트 포털 허브입니다." />
+  <meta name="twitter:image" content="https://haksoo0918.github.io/assets/images/og-image.png" />
+
+  <!-- 외부 리소스 사전 연결 (Core Web Vitals 최적화) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
 
   <!-- 단일 기본 폰트: Pretendard CDN -->
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 
-  <!-- Lucide Icons 공식 CDN 로드 -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lucide Icons 공식 CDN 로드 (defer 적용으로 렌더링 차단 방지) -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <!-- VoiceBox Editorial 스타일시트 -->
   <link rel="stylesheet" href="assets/css/style.css" />
@@ -42,9 +56,14 @@
         "@type": "WebSite",
         "@id": "https://haksoo0918.github.io/#website",
         "url": "https://haksoo0918.github.io/",
-        "name": "HS Projects Hub",
+        "name": "HS HUB",
+        "alternateName": "HS Projects Hub",
         "description": "sosoFactory 프로젝트와 개인 퀀트/작업물을 소개하는 포털",
-        "inLanguage": "ko-KR"
+        "image": "https://haksoo0918.github.io/assets/images/og-image.png",
+        "inLanguage": "ko-KR",
+        "author": {
+          "@id": "https://haksoo0918.github.io/#person"
+        }
       },
       {
         "@type": "Person",
@@ -109,9 +128,107 @@
           </div>
         </div>
 
-        <!-- 동적 카드 그리드 컨테이너 -->
+        <!-- 프로젝트 카드 그리드 컨테이너 (정적 마크업 사전 렌더링으로 비-JS 검색 크롤러 완벽 색인 보장) -->
         <div id="projects-grid" class="projects-grid" aria-live="polite">
-          <!-- main.js에 의해 projects.json 데이터가 동적으로 렌더링됩니다 -->
+          <article class="project-card" data-id="calculator">
+            <div class="card-thumbnail">
+              <div class="thumbnail-placeholder"><span>계산기 (Calculator)</span></div>
+            </div>
+            <div class="card-body">
+              <div>
+                <div class="card-header">
+                  <span class="card-category">sosoFactory</span>
+                  <span class="status-badge live">LIVE</span>
+                </div>
+                <h3 class="card-title">계산기 (Calculator)</h3>
+                <p class="card-description">필요해서 손수 만들어 쓰는 반응형 웹 계산기 유틸리티입니다.</p>
+              </div>
+              <div>
+                <div class="card-tags">
+                  <span class="tag-item">Web App</span><span class="tag-item">Utility</span><span class="tag-item">JavaScript</span>
+                </div>
+                <div class="card-actions">
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">사이트 방문 <i data-lucide="external-link" class="icon-sm"></i></a>
+                  <a href="https://github.com/haksoo0918" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub <i data-lucide="external-link" class="icon-sm"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-id="startpage">
+            <div class="card-thumbnail">
+              <div class="thumbnail-placeholder"><span>시작페이지 (Start Page)</span></div>
+            </div>
+            <div class="card-body">
+              <div>
+                <div class="card-header">
+                  <span class="card-category">sosoFactory</span>
+                  <span class="status-badge live">LIVE</span>
+                </div>
+                <h3 class="card-title">시작페이지 (Start Page)</h3>
+                <p class="card-description">자주 찾는 링크와 일상 도구를 한눈에 모아둔 개인 맞춤형 브라우저 시작 대시보드입니다.</p>
+              </div>
+              <div>
+                <div class="card-tags">
+                  <span class="tag-item">Web App</span><span class="tag-item">Productivity</span><span class="tag-item">Dashboard</span>
+                </div>
+                <div class="card-actions">
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">사이트 방문 <i data-lucide="external-link" class="icon-sm"></i></a>
+                  <a href="https://github.com/haksoo0918" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub <i data-lucide="external-link" class="icon-sm"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-id="bitcoin-quant">
+            <div class="card-thumbnail">
+              <div class="thumbnail-placeholder"><span>비트코인 퀀트 (Bitcoin Quant)</span></div>
+            </div>
+            <div class="card-body">
+              <div>
+                <div class="card-header">
+                  <span class="card-category">개인 프로젝트</span>
+                  <span class="status-badge live">LIVE</span>
+                </div>
+                <h3 class="card-title">비트코인 퀀트 (Bitcoin Quant)</h3>
+                <p class="card-description">가상자산 시장 데이터를 분석하고 개인적인 호기심으로 트레이딩 전략을 실험해보는 퀀트 프로젝트입니다.</p>
+              </div>
+              <div>
+                <div class="card-tags">
+                  <span class="tag-item">Quant</span><span class="tag-item">Trading</span><span class="tag-item">Python</span><span class="tag-item">Backtesting</span>
+                </div>
+                <div class="card-actions">
+                  <a href="https://haksoo0918.github.io/bitcoin-quant/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">사이트 방문 <i data-lucide="external-link" class="icon-sm"></i></a>
+                  <a href="https://github.com/haksoo0918/bitcoin-quant" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub <i data-lucide="external-link" class="icon-sm"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-id="tech-blog">
+            <div class="card-thumbnail">
+              <div class="thumbnail-placeholder"><span>블로그 (Blog)</span></div>
+            </div>
+            <div class="card-body">
+              <div>
+                <div class="card-header">
+                  <span class="card-category">개인 프로젝트</span>
+                  <span class="status-badge external">EXTERNAL</span>
+                </div>
+                <h3 class="card-title">블로그 (Blog)</h3>
+                <p class="card-description">생각과 일상, 소소한 취미 개발 이야기를 자유롭게 적어두는 개인 블로그입니다.</p>
+              </div>
+              <div>
+                <div class="card-tags">
+                  <span class="tag-item">Blog</span><span class="tag-item">Life &amp; Notes</span><span class="tag-item">Cloudflare Workers</span>
+                </div>
+                <div class="card-actions">
+                  <a href="https://blog.haksoo0918.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">사이트 방문 <i data-lucide="external-link" class="icon-sm"></i></a>
+                  <a href="https://github.com/haksoo0918" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">GitHub <i data-lucide="external-link" class="icon-sm"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
