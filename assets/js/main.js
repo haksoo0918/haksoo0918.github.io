@@ -26,8 +26,8 @@ const DEFAULT_PROJECTS_FALLBACK = [
     "tags": ["Web App", "Utility", "JavaScript"],
     "badge": "LIVE",
     "links": {
-      "live": "#",
-      "github": "https://github.com/haksoo0918"
+      "live": "https://soso-calculator.vercel.app/",
+      "github": "https://github.com/sosoFactory/smart-calculator-hub"
     }
   },
   {
@@ -40,8 +40,8 @@ const DEFAULT_PROJECTS_FALLBACK = [
     "tags": ["Web App", "Productivity", "Dashboard"],
     "badge": "LIVE",
     "links": {
-      "live": "#",
-      "github": "https://github.com/haksoo0918"
+      "live": "https://sosofactory.github.io/start-page/",
+      "github": "https://github.com/sosoFactory/start-page"
     }
   },
   {
@@ -68,8 +68,7 @@ const DEFAULT_PROJECTS_FALLBACK = [
     "tags": ["Blog", "Life & Notes", "Cloudflare Workers"],
     "badge": "EXTERNAL",
     "links": {
-      "live": "https://blog.haksoo0918.workers.dev/",
-      "github": "https://github.com/haksoo0918"
+      "live": "https://blog.haksoo0918.workers.dev/"
     }
   }
 ];

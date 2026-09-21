@@ -6,11 +6,15 @@
     "categoryLabel": "sosoFactory",
     "thumbnail": "assets/images/projects/calculator.png",
     "description": "필요해서 손수 만들어 쓰는 반응형 웹 계산기 유틸리티입니다.",
-    "tags": ["Web App", "Utility", "JavaScript"],
+    "tags": [
+      "Web App",
+      "Utility",
+      "JavaScript"
+    ],
     "badge": "LIVE",
     "links": {
-      "live": "#",
-      "github": "https://github.com/haksoo0918"
+      "live": "https://soso-calculator.vercel.app/",
+      "github": "https://github.com/sosoFactory/smart-calculator-hub"
     }
   },
   {
@@ -20,11 +24,15 @@
     "categoryLabel": "sosoFactory",
     "thumbnail": "assets/images/projects/startpage.png",
     "description": "자주 찾는 링크와 일상 도구를 한눈에 모아둔 개인 맞춤형 브라우저 시작 대시보드입니다.",
-    "tags": ["Web App", "Productivity", "Dashboard"],
+    "tags": [
+      "Web App",
+      "Productivity",
+      "Dashboard"
+    ],
     "badge": "LIVE",
     "links": {
-      "live": "#",
-      "github": "https://github.com/haksoo0918"
+      "live": "https://sosofactory.github.io/start-page/",
+      "github": "https://github.com/sosoFactory/start-page"
     }
   },
   {
@@ -34,7 +42,12 @@
     "categoryLabel": "개인 프로젝트",
     "thumbnail": "assets/images/projects/bitcoin-quant.png",
     "description": "가상자산 시장 데이터를 분석하고 개인적인 호기심으로 트레이딩 전략을 실험해보는 퀀트 프로젝트입니다.",
-    "tags": ["Quant", "Trading", "Python", "Backtesting"],
+    "tags": [
+      "Quant",
+      "Trading",
+      "Python",
+      "Backtesting"
+    ],
     "badge": "LIVE",
     "links": {
       "live": "https://haksoo0918.github.io/bitcoin-quant/",
@@ -48,11 +61,14 @@
     "categoryLabel": "개인 프로젝트",
     "thumbnail": "assets/images/projects/blog.png",
     "description": "생각과 일상, 소소한 취미 개발 이야기를 자유롭게 적어두는 개인 블로그입니다.",
-    "tags": ["Blog", "Life & Notes", "Cloudflare Workers"],
+    "tags": [
+      "Blog",
+      "Life & Notes",
+      "Cloudflare Workers"
+    ],
     "badge": "EXTERNAL",
     "links": {
-      "live": "https://blog.haksoo0918.workers.dev/",
-      "github": "https://github.com/haksoo0918"
+      "live": "https://blog.haksoo0918.workers.dev/"
     }
   }
 ]
