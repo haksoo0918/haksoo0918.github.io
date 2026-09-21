@@ -54,8 +54,8 @@ const DEFAULT_PROJECTS_FALLBACK = [
     "tags": ["Quant", "Trading", "Python", "Backtesting"],
     "badge": "LIVE",
     "links": {
-      "live": "https://haksoo0918.github.io/bitcoin-quant/",
-      "github": "https://github.com/haksoo0918/bitcoin-quant"
+      "live": "https://haksoo0918.github.io/quant-bitcoin/",
+      "github": "https://github.com/haksoo0918/quant-bitcoin"
     }
   },
   {

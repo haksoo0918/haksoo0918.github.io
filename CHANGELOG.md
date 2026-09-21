@@ -64,3 +64,9 @@
 - 기존 레거시 블로그 자동 이동 스크립트 및 메타 리프레시 로직 삭제.
 - 푸터의 프레임워크 크레딧("Built with...") 문구를 제거하여 미니멀한 에디토리얼 감성 극대화.
 
+### 수정됨 (Fixed)
+- **비트코인 퀀트(Bitcoin Quant) 링크 경로 수정**:
+  - `bitcoin-quant`로 잘못 기재되어 있던 라이브 사이트 및 GitHub 저장소 URL을 올바른 경로(`quant-bitcoin`)로 수정 (`data/projects.json`, `index.html`, `assets/js/main.js`).
+
+
+
