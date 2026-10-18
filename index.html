@@ -130,6 +130,30 @@
 
         <!-- 프로젝트 카드 그리드 컨테이너 (정적 마크업 사전 렌더링으로 비-JS 검색 크롤러 완벽 색인 보장) -->
         <div id="projects-grid" class="projects-grid" aria-live="polite">
+          <article class="project-card" data-id="rollnspin">
+            <div class="card-thumbnail">
+              <img src="assets/images/projects/rollnspin.png" alt="돌려돌려 (Roll&Spin) 미리보기" loading="lazy" onerror="handleThumbnailError(this, '돌려돌려 (Roll&Spin)')" />
+            </div>
+            <div class="card-body">
+              <div>
+                <div class="card-header">
+                  <span class="card-category">sosoFactory</span>
+                  <span class="status-badge live">LIVE</span>
+                </div>
+                <h3 class="card-title">돌려돌려 (Roll&Spin)</h3>
+                <p class="card-description">오프라인 모임, 회식, 팀 의사결정을 위한 12종 파티 미니게임 올인원 랜덤 툴킷입니다.</p>
+              </div>
+              <div>
+                <div class="card-tags">
+                  <span class="tag-item">Web App</span><span class="tag-item">Game</span><span class="tag-item">Utility</span>
+                </div>
+                <div class="card-actions">
+                  <a href="https://rollnspin.haksoo0918.workers.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">사이트 방문 <i data-lucide="external-link" class="icon-sm"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+
           <article class="project-card" data-id="calculator">
             <div class="card-thumbnail">
               <img src="assets/images/projects/calculator.png" alt="스마트 계산기 허브 (Smart Calculator Hub) 미리보기" loading="lazy" onerror="handleThumbnailError(this, '스마트 계산기 허브 (Smart Calculator Hub)')" />
@@ -162,7 +186,7 @@
             <div class="card-body">
               <div>
                 <div class="card-header">
-                  <span class="card-category">sosoFactory</span>
+                  <span class="card-category">개인 프로젝트</span>
                   <span class="status-badge live">LIVE</span>
                 </div>
                 <h3 class="card-title">시작페이지 (Start Page)</h3>

@@ -59,6 +59,7 @@
   "title": "프로젝트 이름",
   "category": "sosoFactory",
   "categoryLabel": "sosoFactory",
+  "createdAt": "2026-10-18",
   "thumbnail": "assets/images/projects/new-app.png",
   "description": "프로젝트에 대한 핵심 설명",
   "tags": ["Web App", "Utility", "JavaScript"],
@@ -70,6 +71,7 @@
 }
 ```
 
+* `createdAt`: `"YYYY-MM-DD"` (등록 일자 기준 최신순으로 자동 정렬됩니다)
 * `category`: `sosoFactory` 또는 `personal`
 * `badge`: `LIVE`, `EXTERNAL`, `BETA` 등
 * `thumbnail`: 이미지가 없을 경우 깨지지 않고 직각 텍스트 플레이스홀더 박스가 자동으로 표시됩니다.

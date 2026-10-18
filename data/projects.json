@@ -1,9 +1,28 @@
 [
   {
+    "id": "rollnspin",
+    "title": "돌려돌려 (Roll&Spin)",
+    "category": "sosoFactory",
+    "categoryLabel": "sosoFactory",
+    "createdAt": "2026-10-18",
+    "thumbnail": "assets/images/projects/rollnspin.png",
+    "description": "오프라인 모임, 회식, 팀 의사결정을 위한 12종 파티 미니게임 올인원 랜덤 툴킷입니다.",
+    "tags": [
+      "Web App",
+      "Game",
+      "Utility"
+    ],
+    "badge": "LIVE",
+    "links": {
+      "live": "https://rollnspin.haksoo0918.workers.dev/"
+    }
+  },
+  {
     "id": "calculator",
     "title": "스마트 계산기 허브 (Smart Calculator Hub)",
     "category": "sosoFactory",
     "categoryLabel": "sosoFactory",
+    "createdAt": "2026-09-17",
     "thumbnail": "assets/images/projects/calculator.png",
     "description": "필요해서 손수 만들어 쓰는 반응형 웹 계산기 유틸리티입니다.",
     "tags": [
@@ -20,8 +39,9 @@
   {
     "id": "startpage",
     "title": "시작페이지 (Start Page)",
-    "category": "sosoFactory",
-    "categoryLabel": "sosoFactory",
+    "category": "personal",
+    "categoryLabel": "개인 프로젝트",
+    "createdAt": "2026-09-17",
     "thumbnail": "assets/images/projects/startpage.png",
     "description": "자주 찾는 링크와 일상 도구를 한눈에 모아둔 개인 맞춤형 브라우저 시작 대시보드입니다.",
     "tags": [
@@ -40,6 +60,7 @@
     "title": "비트코인 퀀트 (Bitcoin Quant)",
     "category": "personal",
     "categoryLabel": "개인 프로젝트",
+    "createdAt": "2026-09-17",
     "thumbnail": "assets/images/projects/bitcoin-quant.png",
     "description": "가상자산 시장 데이터를 분석하고 개인적인 호기심으로 트레이딩 전략을 실험해보는 퀀트 프로젝트입니다.",
     "tags": [
@@ -59,6 +80,7 @@
     "title": "블로그 (Blog)",
     "category": "personal",
     "categoryLabel": "개인 프로젝트",
+    "createdAt": "2026-09-17",
     "thumbnail": "assets/images/projects/blog.png",
     "description": "생각과 일상, 소소한 취미 개발 이야기를 자유롭게 적어두는 개인 블로그입니다.",
     "tags": [

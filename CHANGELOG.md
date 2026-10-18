@@ -8,6 +8,12 @@
 ## [미출시] (Unreleased)
 
 ### 추가됨 (Added)
+- **프로젝트 등록일자(`createdAt`) 기반 최신순 정렬 기능 추가**:
+  - `data/projects.json` 및 `main.js`에 `createdAt` 필드를 도입하고 `sortProjectsByDate` 정렬 함수를 적용하여 신규 등록 프로젝트가 항상 최상단에 우선 노출되도록 보장.
+  - 검색 엔진 크롤러용 `index.html` 정적 사전 렌더링 카드 순서도 최신순(돌려돌려 최상단)으로 동기화.
+- **돌려돌려 (Roll&Spin) 신규 프로젝트 등록**:
+  - sosoFactory 카테고리에 `돌려돌려 (Roll&Spin)` (모임 미니게임 올인원 랜덤 툴킷, `https://rollnspin.haksoo0918.workers.dev/`) 프로젝트 카드 추가.
+  - 전용 썸네일 이미지(`assets/images/projects/rollnspin.png`) 등록 및 `data/projects.json`, `index.html` 정적 사전 렌더링 카드, `main.js` 오프라인 폴백 데이터에 반영.
 - **Git 추적 규칙(.gitignore) 추가**:
   - OS 생성 파일, 에디터 설정, 의존성 패키지, 임시 로그 및 환경 파일의 Git 추적 제외 설정.
 - **SEO 및 소셜 공유 최적화**:
@@ -48,6 +54,8 @@
   - 개발 프로토콜(`GEMINI.md`) 및 제품 요구사항 정의서(`PRD.md`) 작성.
 
 ### 변경됨 (Changed)
+- **시작페이지(Start Page) 카테고리 이전**:
+  - `sosoFactory`에서 `개인 프로젝트(personal)`로 카테고리 변경 (`data/projects.json`, `index.html`, `assets/js/main.js`, `PRD.md`).
 - **계산기 프로젝트 명칭 변경**:
   - 기존 `계산기 (Calculator)` 프로젝트 명칭을 `스마트 계산기 허브 (Smart Calculator Hub)`로 변경 반영 (`data/projects.json`, `index.html`, `assets/js/main.js`, `PRD.md`, `TODO.md`).
 - **오픈그래프(OG) 대표 공유 이미지 교체**:

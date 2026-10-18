@@ -17,10 +17,25 @@ const PROJECTS_DATA_URL = 'data/projects.json';
  */
 const DEFAULT_PROJECTS_FALLBACK = [
   {
+    "id": "rollnspin",
+    "title": "돌려돌려 (Roll&Spin)",
+    "category": "sosoFactory",
+    "categoryLabel": "sosoFactory",
+    "createdAt": "2026-10-18",
+    "thumbnail": "assets/images/projects/rollnspin.png",
+    "description": "오프라인 모임, 회식, 팀 의사결정을 위한 12종 파티 미니게임 올인원 랜덤 툴킷입니다.",
+    "tags": ["Web App", "Game", "Utility"],
+    "badge": "LIVE",
+    "links": {
+      "live": "https://rollnspin.haksoo0918.workers.dev/"
+    }
+  },
+  {
     "id": "calculator",
     "title": "스마트 계산기 허브 (Smart Calculator Hub)",
     "category": "sosoFactory",
     "categoryLabel": "sosoFactory",
+    "createdAt": "2026-09-17",
     "thumbnail": "assets/images/projects/calculator.png",
     "description": "필요해서 손수 만들어 쓰는 반응형 웹 계산기 유틸리티입니다.",
     "tags": ["Web App", "Utility", "JavaScript"],
@@ -33,8 +48,9 @@ const DEFAULT_PROJECTS_FALLBACK = [
   {
     "id": "startpage",
     "title": "시작페이지 (Start Page)",
-    "category": "sosoFactory",
-    "categoryLabel": "sosoFactory",
+    "category": "personal",
+    "categoryLabel": "개인 프로젝트",
+    "createdAt": "2026-09-17",
     "thumbnail": "assets/images/projects/startpage.png",
     "description": "자주 찾는 링크와 일상 도구를 한눈에 모아둔 개인 맞춤형 브라우저 시작 대시보드입니다.",
     "tags": ["Web App", "Productivity", "Dashboard"],
@@ -49,6 +65,7 @@ const DEFAULT_PROJECTS_FALLBACK = [
     "title": "비트코인 퀀트 (Bitcoin Quant)",
     "category": "personal",
     "categoryLabel": "개인 프로젝트",
+    "createdAt": "2026-09-17",
     "thumbnail": "assets/images/projects/bitcoin-quant.png",
     "description": "가상자산 시장 데이터를 분석하고 개인적인 호기심으로 트레이딩 전략을 실험해보는 퀀트 프로젝트입니다.",
     "tags": ["Quant", "Trading", "Python", "Backtesting"],
@@ -63,6 +80,7 @@ const DEFAULT_PROJECTS_FALLBACK = [
     "title": "블로그 (Blog)",
     "category": "personal",
     "categoryLabel": "개인 프로젝트",
+    "createdAt": "2026-09-17",
     "thumbnail": "assets/images/projects/blog.png",
     "description": "생각과 일상, 소소한 취미 개발 이야기를 자유롭게 적어두는 개인 블로그입니다.",
     "tags": ["Blog", "Life & Notes", "Cloudflare Workers"],
@@ -124,6 +142,20 @@ function bindFilterEvents() {
 }
 
 /**
+ * 프로젝트 목록을 등록일자(createdAt) 기준 최신순(내림차순)으로 정렬하는 함수
+ * @param {Array<Object>} projects - 정렬할 프로젝트 배열
+ * @returns {Array<Object>} 최신순으로 정렬된 프로젝트 배열
+ */
+function sortProjectsByDate(projects) {
+  if (!Array.isArray(projects)) return [];
+  return [...projects].sort((a, b) => {
+    const timeA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+    const timeB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+    return timeB - timeA;
+  });
+}
+
+/**
  * 원격 JSON 파일로부터 프로젝트 목록 데이터를 수신하고 렌더링하는 비동기 함수
  * 로컬 파일 시스템(`file://`)이나 네트워크 오류 시 내장 폴백 데이터로 자동 전환합니다.
  */
@@ -136,12 +168,13 @@ async function fetchAndRenderProjects() {
       throw new Error(`데이터 로드 응답 에러: HTTP ${response.status}`);
     }
 
-    loadedProjectsList = await response.json();
+    const rawProjects = await response.json();
+    loadedProjectsList = sortProjectsByDate(rawProjects);
     renderProjects(loadedProjectsList);
   } catch (error) {
     // file:// 환경 또는 fetch 실패 시에도 더블클릭으로 바로 볼 수 있도록 폴백 데이터 사용
     console.warn('projects.json fetch 실패, 기본 내장 데이터를 사용합니다:', error);
-    loadedProjectsList = DEFAULT_PROJECTS_FALLBACK;
+    loadedProjectsList = sortProjectsByDate(DEFAULT_PROJECTS_FALLBACK);
     renderProjects(loadedProjectsList);
   }
 }
