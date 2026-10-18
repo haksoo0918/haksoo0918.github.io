@@ -48,6 +48,8 @@
   - 개발 프로토콜(`GEMINI.md`) 및 제품 요구사항 정의서(`PRD.md`) 작성.
 
 ### 변경됨 (Changed)
+- **계산기 프로젝트 명칭 변경**:
+  - 기존 `계산기 (Calculator)` 프로젝트 명칭을 `스마트 계산기 허브 (Smart Calculator Hub)`로 변경 반영 (`data/projects.json`, `index.html`, `assets/js/main.js`, `PRD.md`, `TODO.md`).
 - **오픈그래프(OG) 대표 공유 이미지 교체**:
   - 소셜 링크 공유 시 표시되는 대표 이미지(`assets/images/og-image.png`)를 새로 교체 반영.
 - **프로젝트 실서비스 링크 및 정적 마크업 동기화**:

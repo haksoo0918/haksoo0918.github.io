@@ -18,7 +18,7 @@ const PROJECTS_DATA_URL = 'data/projects.json';
 const DEFAULT_PROJECTS_FALLBACK = [
   {
     "id": "calculator",
-    "title": "계산기 (Calculator)",
+    "title": "스마트 계산기 허브 (Smart Calculator Hub)",
     "category": "sosoFactory",
     "categoryLabel": "sosoFactory",
     "thumbnail": "assets/images/projects/calculator.png",

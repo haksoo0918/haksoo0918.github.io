@@ -15,7 +15,7 @@
 
 ### 2.2 sosoFactory Projects (가내수공업 웹 도구)
 - 필요에 의해 손수 만들어 쓰는 가볍고 실용적인 웹 유틸리티 섹션
-- **계산기 (Calculator)**: 실용적인 반응형 웹 계산기
+- **스마트 계산기 허브 (Smart Calculator Hub)**: 실용적인 반응형 웹 계산기
 - **시작페이지 (Start Page)**: 개인 맞춤형 브라우저 새 탭 / 시작 대시보드
 
 ### 2.3 취미 프로젝트 (Personal Hobby & Labs)
