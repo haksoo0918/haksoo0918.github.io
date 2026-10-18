@@ -39,8 +39,8 @@
   {
     "id": "startpage",
     "title": "시작페이지 (Start Page)",
-    "category": "personal",
-    "categoryLabel": "개인 프로젝트",
+    "category": "sosoFactory",
+    "categoryLabel": "sosoFactory",
     "createdAt": "2026-09-17",
     "thumbnail": "assets/images/projects/startpage.png",
     "description": "자주 찾는 링크와 일상 도구를 한눈에 모아둔 개인 맞춤형 브라우저 시작 대시보드입니다.",
@@ -51,7 +51,7 @@
     ],
     "badge": "LIVE",
     "links": {
-      "live": "https://sosofactory.github.io/start-page/",
+      "live": "https://haksoo0918.github.io/start-page/",
       "github": "https://github.com/haksoo0918/start-page"
     }
   },

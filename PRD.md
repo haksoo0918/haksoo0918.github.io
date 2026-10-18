@@ -17,10 +17,10 @@
 - 필요에 의해 손수 만들어 쓰는 가볍고 실용적인 웹 유틸리티 섹션
 - **돌려돌려 (Roll&Spin)**: 모임, 회식, 팀 의사결정을 위한 12종 파티 미니게임 올인원 랜덤 툴킷 (`https://rollnspin.haksoo0918.workers.dev/`)
 - **스마트 계산기 허브 (Smart Calculator Hub)**: 실용적인 반응형 웹 계산기
+- **시작페이지 (Start Page)**: 개인 맞춤형 브라우저 새 탭 / 시작 대시보드 (`https://haksoo0918.github.io/start-page/`)
 
 ### 2.3 취미 프로젝트 (Personal Hobby & Labs)
 - 개인적인 관심사와 호기심에서 출발한 취미 개발 프로젝트 섹션
-- **시작페이지 (Start Page)**: 개인 맞춤형 브라우저 새 탭 / 시작 대시보드
 - **비트코인 퀀트 (Bitcoin Quant)**: 가상자산 시장 분석 및 알고리즘 트레이딩 백테스팅 실험
 - **블로그 (Blog)**: 생각, 일상, 취미 개발 기록 아카이브 (`https://blog.haksoo0918.workers.dev/`)
 
