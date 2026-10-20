@@ -54,6 +54,8 @@
   - 개발 프로토콜(`GEMINI.md`) 및 제품 요구사항 정의서(`PRD.md`) 작성.
 
 ### 변경됨 (Changed)
+- **스마트 계산기 허브 라이브 배포 URL 변경**:
+  - 기존 `https://soso-calculator.vercel.app/`에서 Cloudflare Pages 도메인(`https://smart-calculator-hub.pages.dev/`)으로 변경 반영 (`data/projects.json`, `index.html`, `assets/js/main.js`, `PRD.md`, `TODO.md`).
 - **시작페이지(Start Page) URL 갱신 및 sosoFactory 카테고리 유지**:
   - 시작페이지 라이브 배포 주소를 `https://haksoo0918.github.io/start-page/`로 변경하고 GitHub 링크(`https://github.com/haksoo0918/start-page`) 및 `sosoFactory` 카테고리 일괄 동기화 (`data/projects.json`, `index.html`, `assets/js/main.js`, `PRD.md`).
 - **계산기 프로젝트 명칭 변경**:

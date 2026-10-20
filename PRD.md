@@ -16,7 +16,7 @@
 ### 2.2 sosoFactory Projects (가내수공업 웹 도구)
 - 필요에 의해 손수 만들어 쓰는 가볍고 실용적인 웹 유틸리티 섹션
 - **돌려돌려 (Roll&Spin)**: 모임, 회식, 팀 의사결정을 위한 12종 파티 미니게임 올인원 랜덤 툴킷 (`https://rollnspin.haksoo0918.workers.dev/`)
-- **스마트 계산기 허브 (Smart Calculator Hub)**: 실용적인 반응형 웹 계산기
+- **스마트 계산기 허브 (Smart Calculator Hub)**: 실용적인 반응형 웹 계산기 (`https://smart-calculator-hub.pages.dev/`)
 - **시작페이지 (Start Page)**: 개인 맞춤형 브라우저 새 탭 / 시작 대시보드 (`https://haksoo0918.github.io/start-page/`)
 
 ### 2.3 취미 프로젝트 (Personal Hobby & Labs)

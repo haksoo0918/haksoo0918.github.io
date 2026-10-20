@@ -41,7 +41,7 @@ const DEFAULT_PROJECTS_FALLBACK = [
     "tags": ["Web App", "Utility", "JavaScript"],
     "badge": "LIVE",
     "links": {
-      "live": "https://soso-calculator.vercel.app/"
+      "live": "https://smart-calculator-hub.pages.dev/"
     }
   },
   {
